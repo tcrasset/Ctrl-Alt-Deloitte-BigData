@@ -1,16 +1,15 @@
 ,index,Manufacturer
-0,VMware Inc.,903
+0,VMWare Inc.,906
 1,Lenovo,882
 2,IBM,159
 3,Microsoft Corporation,139
 4,Hewlett-Packard,54
 5,Dell Inc.,45
-6,TOSHIBA,3
-7,Xen,3
-8,VMWare Inc.,3
-9,Cisco Systems Inc,2
-10,SIEMENS AG,2
-11,Huawei Technologies Co.  Ltd.,2
-12,Sony Corporation,2
+6,Xen,3
+7,TOSHIBA,3
+8,SIEMENS AG,2
+9,Huawei Technologies Co.  Ltd.,2
+10,Sony Corporation,2
+11,Cisco Systems Inc,2
+12,innotek GmbH,1
 13,System manufacturer,1
-14,innotek GmbH,1

@@ -51,9 +51,10 @@ df.replace({"MainboardType": MainboardType_dict}, inplace=True)
 df['MainboardType'] = df['MainboardType'].fillna("NA")
 
 Manufacturer_dict = {
-'VMware, Inc.' : 'VMware Inc.',
+'VMware, Inc.' : 'VMWare Inc.',
 'VMWare, Inc.' : 'VMWare Inc.',
 'VMWare Inc' : 'VMWare Inc.',
+'VMware Inc.' : 'VMWare Inc.',
 'IBM CORPORATION' : 'IBM',
 'HP' : 'Hewlett-Packard',
 'LENOVO': 'Lenovo',
