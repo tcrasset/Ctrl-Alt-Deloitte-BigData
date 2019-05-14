@@ -1,26 +1,10 @@
 import pandas as pd
-import csv
 
 
-df = pd.read_csv('Devices.csv', delimiter=';', error_bad_lines=False, encoding='latin1')
+df = pd.read_csv('Devices.csv', delimiter=';', error_bad_lines=False, warn_bad_lines=False, encoding='latin1')
 
 # Drop redundant columns
 df.drop(columns= ['SiteName', 'BiosDate'], inplace=True)
-
-# Unique values per column
-# print('==================================================================')
-# print("Unique values per column\n")
-# for col in df.columns:
-#     if len(df[col].unique()) < 20:
-#         print(col)
-#         print(df[col].unique().tolist())
-# print('==================================================================')
-
-# # Column name and number of NANs of dirty df
-# print('==================================================================')
-# print("Column name and number of NANs of dirty df",df.isna().sum())
-# print('==================================================================')
-
 
 # Rename values so that they match
 df.replace({"ConfigName": {'Canada_1':'Canada', 'Australia Agent Win': 'Australia'}}, inplace=True)
@@ -65,28 +49,9 @@ df.replace({"Manufacturer": Manufacturer_dict}, inplace=True)
 # Create clean df, drop if more than 'percentage_to_drop' % missing values
 percentage_to_drop = 10
 clean_df = df[[c for c in df if df[c].isnull().sum() < len(df) * percentage_to_drop/100]]
-# print("Column name and number of NANs of clean df",clean_df.isna().sum())
 
-# print("\nColumns removed from df after cleaning\n",[c for c in df.columns if c not in clean_df.columns])
-
-# print("\nLength of dirty Devices\n", len(df))
-# print("\nLength of cleaned Devices\n", len(clean_df))
-
-# print("\nLength of dirty Devices columns\n", len(df.columns))
-# print("\nLength of cleaned Devices columns\n", len(clean_df.columns))
-
-
-# # Unique value numbers per column
-# print("\nUnique value numbers per column\n")
-
-# for col in clean_df.columns:
-#     if len(clean_df[col].unique()) < 100:
-#         print(col)
-#         print(clean_df[col].unique().tolist())
-
+# Export whole Devices file to csv
 clean_df.to_csv("Devices_clean.csv", index=False)
-
-print(clean_df['ConfigName'].value_counts())
 
 # Count the occurences of the different values and save to csv
 clean_df['ConfigName'].value_counts().reset_index().to_csv('ConfigNameCount.csv')
